@@ -3,7 +3,7 @@ import { HttpService } from '@nestjs/axios';
 import axios from 'axios';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
-import * as FormData from 'form-data';
+import FormData from 'form-data';
 
 @Injectable()
 export class ProductsService {
