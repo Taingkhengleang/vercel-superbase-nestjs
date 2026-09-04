@@ -261,7 +261,7 @@ export class ProductsService {
     formData.append('date_of_birth', data.date_of_birth);
 
     const response = await axios.post(
-      'https://seafood-generate-shared-shipping.trycloudflare.com/api/v1/engine/kyc/convert_vri_score',
+      'https://latino-lesser-professional-mesh.trycloudflare.com/api/v1/engine/kyc/convert_vri_score',
       formData,
       {
         headers: {
@@ -269,6 +269,10 @@ export class ProductsService {
         },
       },
     );
+
+    if(response.status !== 200) {
+        throw new Error(`Request failed with status code ${response.status}`);
+    }
 
     return response.data;
   }
