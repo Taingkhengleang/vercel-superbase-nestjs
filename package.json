@@ -1,6 +1,10 @@
 {
   "name": "vervel-superbase",
   "version": "0.0.1",
+  "allowScripts": {
+    "@nestjs/core": true,
+    "esbuild": true
+  },
   "description": "",
   "author": "",
   "private": true,
