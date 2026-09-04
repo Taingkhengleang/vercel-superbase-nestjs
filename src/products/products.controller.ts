@@ -36,4 +36,13 @@ export class ProductsController {
   handleJson(@Body() jsonData: any) {
     return this.productsService.getJsonData();
   }
+
+  @Post('getDataFrom')
+  async getDataFrom(@Body() body: {
+      national_id: string;
+      full_name: string;
+      date_of_birth: string;
+    }) {
+    return this.productsService.getDataFrom(body);
+  }
 }

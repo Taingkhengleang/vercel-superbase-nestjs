@@ -1,9 +1,14 @@
 import { Injectable } from '@nestjs/common';
+import { HttpService } from '@nestjs/axios';
+import axios from 'axios';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
+import * as FormData from 'form-data';
 
 @Injectable()
 export class ProductsService {
+  constructor(private readonly httpService: HttpService) {}
+
   create(createProductDto: CreateProductDto) {
     return { message: 'This action adds a new product', createProductDto };
   }
@@ -83,5 +88,25 @@ export class ProductsService {
        { "month": "2026-04", "employer_id": "E2", "position": "accounting", "vri_score": 7313 }
 ]
 }
+  }
+
+  async getDataFrom(data: { national_id: string; full_name: string; date_of_birth: string }) {
+    const formData = new FormData();
+
+    formData.append('national_id', data.national_id);
+    formData.append('full_name', data.full_name);
+    formData.append('date_of_birth', data.date_of_birth);
+
+    const response = await axios.post(
+      'https://seafood-generate-shared-shipping.trycloudflare.com/api/v1/engine/kyc/convert_vri_score',
+      formData,
+      {
+        headers: {
+          ...formData.getHeaders(),
+        },
+      },
+    );
+
+    return response.data;
   }
 }
