@@ -261,7 +261,7 @@ export class ProductsService {
     formData.append('date_of_birth', data.date_of_birth);
 
     const response = await axios.post(
-      'https://and-administration-these-breaks.trycloudflare.com/api/v1/engine/kyc/convert_vri_score',
+      'https://airport-alerts-declined-pharmacology.trycloudflare.com/api/v1/engine/kyc/convert_vri_score',
       formData,
       {
         headers: {
