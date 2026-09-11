@@ -31,6 +31,9 @@ export class ProductsService {
 
   getJsonData() {
     return {
+        'success': true,
+        'message': 'Data retrieved successfully',
+        'data' : {
     "query_id": "VLD-2026-0810-000512",
     "mode": "RETRIEVAL",
     "status": "COMPLETED",
@@ -251,6 +254,7 @@ export class ProductsService {
         }
     ]
 }
+    }
   }
 
   async getDataFrom(data: { national_id: string; full_name: string; date_of_birth: string }) {
